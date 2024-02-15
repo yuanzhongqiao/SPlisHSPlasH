@@ -6,115 +6,130 @@
  <img src="https://raw.githubusercontent.com/InteractiveComputerGraphics/SPlisHSPlasH/master/doc/images/teaser.gif">
 </p>
 
-SPlisHSPlasH is an open-source library for the physically-based simulation of fluids. The simulation in this library is based on the Smoothed Particle Hydrodynamics (SPH) method which is a popular meshless Lagrangian approach to simulate complex fluid effects. The SPH formalism allows an efficient computation of a certain quantity of a fluid particle by considering only a finite set of neighboring particles. One of the most important research topics in the field of SPH methods is the simulation of incompressible fluids. SPlisHSPlasH implements current state-of-the-art pressure solvers (WCSPH, PCISPH, PBF, IISPH, DFSPH, PF) to simulate incompressibility. Moreover, the library provides different methods to simulate viscosity, surface tension and vorticity. 
 
-The library uses the following external libraries: [Eigen](http://eigen.tuxfamily.org/), [json](https://github.com/nlohmann/json/), [partio](https://github.com/wdas/partio/), [zlib](https://github.com/madler/zlib), [cxxopts](https://github.com/jarro2783/cxxopts), [tinyexpr](https://github.com/codeplea/tinyexpr), [toojpeg](https://github.com/stbrumme/toojpeg), [pybind](https://github.com/pybind/pybind11), [glfw](https://www.glfw.org/), [hapPLY](https://github.com/nmwsharp/happly), [nfd](https://github.com/btzy/nativefiledialog-extended), and [imgui](https://github.com/ocornut/imgui). All external dependencies are included. 
-
-Furthermore we use our own libraries:
-- [PositionBasedDynamics](https://github.com/InteractiveComputerGraphics/PositionBasedDynamics/) to simulate dynamic rigid bodies
-- [Discregrid](https://github.com/InteractiveComputerGraphics/Discregrid) to detect collisions between rigid bodies
-- [CompactNSearch](https://github.com/InteractiveComputerGraphics/CompactNSearch) to perform the neighborhood search 
-- [cuNSearch](https://github.com/InteractiveComputerGraphics/cuNSearch) to perform the neighborhood search on the GPU
-- [GenericParameters](https://github.com/InteractiveComputerGraphics/GenericParameters) to handle generic parameters
-
-SPlisHSPlasH can export the particle data in the partio and vtk format. If you want to import partio files in Maya or Blender, try out our plugins: 
-- [Blender Sequence Loader](https://github.com/InteractiveComputerGraphics/blender-sequence-loader)
-- [MayaPartioTools](https://github.com/InteractiveComputerGraphics/MayaPartioTools)
-
-**Author**: [Jan Bender](https://animation.rwth-aachen.de/person/1/)
-
-## License
-
-The SPlisHSPlasH library code is licensed under the MIT license. See [LICENSE](https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/blob/master/LICENSE) for details.
-
-External dependencies are covered by separate licensing terms.
-See the [extern](https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/tree/master/extern) folder for the code and respective licensing terms of each dependency.
-
-
-## Documentation
-
-* [Documentation](https://splishsplash.readthedocs.io)
-* [SPH tutorial](https://interactivecomputergraphics.github.io/SPH-Tutorial)
-
-## Forum
-
-On our [GitHub discussions](https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/discussions) page you can ask questions, discuss about simulation topics, and share ideas.
-
-
-## Build Instructions
-
-This project is based on [CMake](https://cmake.org/). Simply generate project, Makefiles, etc. using [CMake](https://cmake.org/) and compile the project with a compiler of your choice that supports C++11. The code was tested with the following configurations:
-- Windows 10 64-bit, CMake 3.18.3, Visual Studio 2019
-- Debian 11.5 64-bit, CMake 3.18.4, GCC 10.2.1.
-
-Note: Please use a 64-bit target on a 64-bit operating system. 32-bit builds on a 64-bit OS are not supported.
-
-## Python Installation Instruction
-
-For Windows and Linux targets there exists prebuilt python wheel files which can be installed using
-```
-pip install pysplishsplash
-```
-These are available for Python versions 3.6-3.10. See also here: [pySPlisHSPlasH](https://pypi.org/project/pySPlisHSPlasH/).
-If you do not meet these conditions please refer to the build instructions and to the python binding 
-[Getting started guide](https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/blob/master/doc/py_getting_started.md).
-
-The command line simulator is available by running one of the following
-```
-splash
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/InteractiveComputerGraphics/SPlisHSPlasH/master/doc/images/logo.jpg"><img src="https://raw.githubusercontent.com/InteractiveComputerGraphics/SPlisHSPlasH/master/doc/images/logo.jpg" width="250" style="max-width: 100%;"></a></p>
+<br>
+<p align="center" dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/workflows/build-linux/badge.svg"><img src="https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/workflows/build-linux/badge.svg" style="max-width: 100%;"></a>&nbsp;&nbsp; <a target="_blank" rel="noopener noreferrer" href="https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/workflows/build-windows/badge.svg"><img src="https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/workflows/build-windows/badge.svg" style="max-width: 100%;"></a>&nbsp;&nbsp; <a href="https://splishsplash.readthedocs.io/en/latest/?badge=latest" rel="nofollow"><img src="https://camo.githubusercontent.com/a4e7b76ea98ed2d42bc307b20e412f0f417521ef22029d524b3b187c6cebbca9/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f73706c69736873706c6173682f62616467652f3f76657273696f6e3d6c6174657374" alt="文件状态" data-canonical-src="https://readthedocs.org/projects/splishsplash/badge/?version=latest" style="max-width: 100%;"></a></p>
+<p align="center" dir="auto">
+ 
+</p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SPlisHSPlasH 是一个用于基于物理的流体模拟的开源库。该库中的模拟基于平滑粒子流体动力学 (SPH) 方法，该方法是一种流行的无网格拉格朗日方法，用于模拟复杂的流体效应。 SPH 形式允许通过仅考虑一组有限的相邻粒子来有效计算一定数量的流体粒子。 SPH方法领域最重要的研究课题之一是不可压缩流体的模拟。 SPlisHSPlasH 实现了当前最先进的压力求解器（WCSPH、PCISPH、PBF、IISPH、DFSPH、PF）来模拟不可压缩性。此外，该库提供了不同的方法来模拟粘度、表面张力和涡度。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该库使用以下外部库：</font></font><a href="http://eigen.tuxfamily.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Eigen</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/nlohmann/json/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">json</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/wdas/partio/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">partio</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/madler/zlib"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">zlib</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/jarro2783/cxxopts"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cxxopts</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/codeplea/tinyexpr"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tinyexpr</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/stbrumme/toojpeg"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">toojpeg</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/pybind/pybind11"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pybind</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://www.glfw.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">glfw</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/nmwsharp/happly"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hapPLY</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/btzy/nativefiledialog-extended"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">nfd</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://github.com/ocornut/imgui"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">imgui</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。包括所有外部依赖项。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此外，我们使用我们自己的库：</font></font></p>
+<ul dir="auto">
+<li><a href="https://github.com/InteractiveComputerGraphics/PositionBasedDynamics/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PositionBasedDynamics</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于模拟动态刚体</font></font></li>
+<li><a href="https://github.com/InteractiveComputerGraphics/Discregrid"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Discregrid</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于检测刚体之间的碰撞</font></font></li>
+<li><a href="https://github.com/InteractiveComputerGraphics/CompactNSearch"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CompactNSearch</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执行邻域搜索</font></font></li>
+<li><a href="https://github.com/InteractiveComputerGraphics/cuNSearch"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cuNSearch</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 GPU 上执行邻域搜索</font></font></li>
+<li><a href="https://github.com/InteractiveComputerGraphics/GenericParameters"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GenericParameters</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">处理通用参数</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SPlisHSPlasH可以导出partio和vtk格式的粒子数据。如果您想在 Maya 或 Blender 中导入 Partio 文件，请尝试我们的插件：</font></font></p>
+<ul dir="auto">
+<li><a href="https://github.com/InteractiveComputerGraphics/blender-sequence-loader"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搅拌机序列加载器</font></font></a></li>
+<li><a href="https://github.com/InteractiveComputerGraphics/MayaPartioTools"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MayaPartio工具</font></font></a></li>
+</ul>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作者</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><a href="https://animation.rwth-aachen.de/person/1/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">扬·本德</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-license" class="anchor" aria-hidden="true" tabindex="-1" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SPlisHSPlasH 库代码已根据 MIT 许可证获得许可。</font><font style="vertical-align: inherit;">有关详细信息，</font><font style="vertical-align: inherit;">请参阅</font></font><a href="https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/blob/master/LICENSE"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许可证。</font></font></a><font style="vertical-align: inherit;"></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">外部依赖项由单独的许可条款涵盖。请参阅</font></font><a href="https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/tree/master/extern"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">extern</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件夹以获取每个依赖项的代码和各自的许可条款。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-documentation" class="anchor" aria-hidden="true" tabindex="-1" href="#documentation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></h2>
+<ul dir="auto">
+<li><a href="https://splishsplash.readthedocs.io" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></a></li>
+<li><a href="https://interactivecomputergraphics.github.io/SPH-Tutorial" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新加坡报业学会教程</font></font></a></li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content-forum" class="anchor" aria-hidden="true" tabindex="-1" href="#forum"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">论坛</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在我们的</font></font><a href="https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/discussions"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub 讨论</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">页面上，您可以提出问题、讨论模拟主题并分享想法。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-build-instructions" class="anchor" aria-hidden="true" tabindex="-1" href="#build-instructions"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建说明</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该项目基于</font></font><a href="https://cmake.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CMake</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。只需使用</font></font><a href="https://cmake.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CMake</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">生成项目、Makefile 等，然后使用您选择的支持 C++11 的编译器编译项目。该代码使用以下配置进行了测试：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Windows 10 64 位、CMake 3.18.3、Visual Studio 2019</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Debian 11.5 64 位、CMake 3.18.4、GCC 10.2.1。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意：请在 64 位操作系统上使用 64 位目标。不支持 64 位操作系统上的 32 位版本。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-python-installation-instruction" class="anchor" aria-hidden="true" tabindex="-1" href="#python-installation-instruction"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Python安装说明</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于 Windows 和 Linux 目标，存在预构建的 python 轮文件，可以使用以下命令安装</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>pip install pysplishsplash
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="pip install pysplishsplash" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这些适用于 Python 版本 3.6-3.10。另请参见此处：</font></font><a href="https://pypi.org/project/pySPlisHSPlasH/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pySPlisHSPlasH</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。如果您不满足这些条件，请参阅构建说明和 python 绑定
+</font></font><a href="https://github.com/InteractiveComputerGraphics/SPlisHSPlasH/blob/master/doc/py_getting_started.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以通过运行以下命令之一来使用命令行模拟器</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>splash
 splash --help
-```
-
-## Features
-
-SPlisHSPlasH implements:
-* an open-source SPH fluid simulation (2D & 3D)
-* neighborhood search on CPU or GPU
-* supports vectorization using AVX
-* Python binding (thanks to Stefan Jeske)
-* supports embedded Python scripts
-* several implicit pressure solvers (WCSPH, PCISPH, PBF, IISPH, DFSPH, PF)
-* explicit and implicit viscosity methods
-* current surface tension approaches
-* different vorticity methods
-* computation of drag forces
-* support for multi-phase simulations
-* simulation of deformable solids 
-* rigid-fluid coupling with static and dynamic bodies
-* two-way coupling with deformable solids
-* XSPH velocity filter
-* fluid emitters
-* scripted animation fields
-* a json-based scene file importer
-* automatic surface sampling
-* a tool for volume sampling of closed geometries
-* a tool to generate spray, foam and bubble particles in a postprocessing step 
-* a tool to skin a visual mesh to the moving particles of an elastic solid in a postprocessing step
-* partio file export of all particle data
-* VTK file export of all particle data (enables the data import in ParaView)
-* rigid body export
-* a Maya plugin to model and generate scene files 
-* a ParaView plugin to import particle data
-
-A list of all implemented simulation methods can be found here: 
-[https://splishsplash.physics-simulation.org/features](https://splishsplash.physics-simulation.org/features/)
-
-
-## Screenshots & Videos
-
-[https://splishsplash.physics-simulation.org/gallery](https://splishsplash.physics-simulation.org/gallery/)
-
-
-
-## Citation 
-
-To cite SPlisHSPlasH you can use this BibTeX entry:
-
-```bibtex
-@software{SPlisHSPlasH_Library,
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="splash
+splash --help" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<h2 tabindex="-1" dir="auto"><a id="user-content-features" class="anchor" aria-hidden="true" tabindex="-1" href="#features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SPlisHSPlasH 实现：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开源 SPH 流体模拟（2D 和 3D）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CPU 或 GPU 上的邻域搜索</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持使用 AVX 进行矢量化</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Python 绑定（感谢 Stefan Jeske）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持嵌入Python脚本</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">几个隐式压力求解器（WCSPH、PCISPH、PBF、IISPH、DFSPH、PF）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">显式和隐式粘度方法</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">目前的表面张力方法</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不同的涡量方法</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阻力的计算</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持多相模拟</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可变形固体的模拟</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">具有静态和动态实体的刚性流体耦合</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可变形固体双向耦合</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">XSPH速度过滤器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">流体发射器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">脚本化动画领域</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基于 json 的场景文件导入器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自动表面采样</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于封闭几何体体积采样的工具</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在后处理步骤中生成喷雾、泡沫和气泡颗粒的工具</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在后处理步骤中将视觉网格蒙皮到弹性固体的移动粒子的工具</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">所有粒子数据的partio文件导出</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">所有粒子数据的 VTK 文件导出（启用 ParaView 中的数据导入）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">刚体导出</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于建模和生成场景文件的 Maya 插件</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于导入粒子数据的 ParaView 插件</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">所有已实现的模拟方法的列表可以在这里找到：
+ https: </font></font><a href="https://splishsplash.physics-simulation.org/features/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">//splishsplash.physicals-simulation.org/features</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-screenshots--videos" class="anchor" aria-hidden="true" tabindex="-1" href="#screenshots--videos"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">截图和视频</font></font></h2>
+<p dir="auto"><a href="https://splishsplash.physics-simulation.org/gallery/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://splishsplash.physical-simulation.org/gallery</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-citation" class="anchor" aria-hidden="true" tabindex="-1" href="#citation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">引文</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要引用 SPlisHSPlasH，您可以使用此 BibTeX 条目：</font></font></p>
+<div class="highlight highlight-text-bibtex notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-k">@software</span>{<span class="pl-en">SPlisHSPlasH_Library</span>,
+  <span class="pl-s">author</span> = <span class="pl-s"><span class="pl-pds">{</span>Bender, Jan and others<span class="pl-pds">}</span></span>,
+  <span class="pl-s">license</span> = <span class="pl-s"><span class="pl-pds">{</span>MIT<span class="pl-pds">}</span></span>,
+  <span class="pl-s">title</span> = <span class="pl-s"><span class="pl-pds">{</span>{SPlisHSPlasH Library}<span class="pl-pds">}</span></span>,
+  <span class="pl-s">url</span> = <span class="pl-s"><span class="pl-pds">{</span>https://github.com/InteractiveComputerGraphics/SPlisHSPlasH<span class="pl-pds">}</span></span>,
+}</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="@software{SPlisHSPlasH_Library,
   author = {Bender, Jan and others},
   license = {MIT},
   title = {{SPlisHSPlasH Library}},
   url = {https://github.com/InteractiveComputerGraphics/SPlisHSPlasH},
-}
-```
+}" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+</article></div>
